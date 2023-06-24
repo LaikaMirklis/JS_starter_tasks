@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Простий калькулятор</title>
+</head>
+
+<body>
+    <script>
+        //У файлі 004 Strings and Data Conversion\08-simple-calc.html додайте логіку калькулятора. Додайте
+        //операції множення, ділення та віднімання.
+        //Виведіть результати на екран двома способами: через конкатенацію та через шаблонні рядки.
+
+        let inputX = prompt("Введіть перший доданок", 0);
+        let inputY = prompt("Введіть другий доданок", 0);
+
+        let x = Number(inputX);
+        let y = Number(inputY);
+
+        let sum = x + y;
+        let sub = x - y;
+        let div = x / y;
+        let mul = x * y;
+
+        alert(`${x} + ${y} = ${sum}`);
+        alert(x + " - " + y + " = " + sub);
+        alert(`${x} / ${y} = ${div}`);
+        alert(x + " * " + y + " = " + mul);
+    </script>
+</body>
+
+</html>

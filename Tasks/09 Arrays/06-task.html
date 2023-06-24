@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 6</title>
+</head>
+<body>
+    <pre>
+        Завдання:
+        Дано массив. Переставте елемент з максимальним значенням місцями з елементом з мінімальним значенням.
+    </pre>
+    <script>
+        let values = [10, 20, 4, 6, 11, 9, 125, 1, 8, 0, 3];
+        let minIndex = maxIndex = 0;
+        let maxValue = Number.MIN_VALUE; // або  let maxValue = values[0];
+        let minValue = Number.MAX_VALUE;
+
+        for (let index = 0; index < values.length; index++) {
+            if(values[index] > maxValue) {
+                maxValue = values[index];
+                maxIndex = index;
+            }     
+            if (values[index] < minValue) {
+                minValue = values[index];
+                minIndex = index;
+            }           
+        }
+        
+        console.log(`Максимальне значення у масиві - ${maxValue} з індексом ${maxIndex}`);
+        console.log(`Мінімальне значення у масиві - ${minValue} з індексом ${minIndex}`)
+
+
+        values[maxIndex] = minValue;
+        values[minIndex] = maxValue;
+
+        for (const value of values) {
+            console.log(value);
+        }
+
+    </script>
+</body>
+</html>

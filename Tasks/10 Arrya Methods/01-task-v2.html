@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 1</title>
+  </head>
+  <body>
+    <pre>
+        <!-- Завдання:
+        Запросіть у користувача ввести назву міста. Видаліть це місто з елементів массиву.
+        Якщо міста немає в массиві, сповістіть про це користувача.
+        Виведіть массив на екран після видалення елементів.
+        Незалежні від регістру змінні, показувати масив до та після змін. -->
+    </pre>
+    <div id="cities"></div>
+    <hr />
+    <input type="text" id="inputCity" placeholder="Введіть назву міста" />
+    <br />
+    <button onclick="startDeleting()">Видалити міста</button>
+
+    <script>
+      let cities = [
+        "London",
+        "Paris",
+        "Berlin",
+        "Rome",
+        "Budapest",
+        "Lisbon",
+        "Madrid",
+        "Amsterdam",
+      ];
+      // citiesBefore = cities.join(", ");
+      // alert(citiesBefore);
+
+      renderCities();
+
+      let inputCity, index;
+      let stopCycle = false;
+      let listCity, city;
+
+      function renderCities() {
+        const citiesList = document.getElementById("cities");
+        let citiesHTML = `<h3> Cities list </h3>
+                <ul>
+                ${renderList(cities)}
+                </ul>`;
+        citiesList.innerHTML = citiesHTML;
+      }
+
+      function renderList(cities) {
+        let listCity = "";
+        cities.forEach((city) => {
+          listCity += `<li>${city}</li>`;
+        });
+        return listCity;
+      }
+
+      function startDeleting() {
+        inputCity = document.getElementById("inputCity").value;
+
+        index = cities.findIndex(
+          (item) => inputCity.toLowerCase() === item.toLowerCase()
+        );
+
+        if (index == -1) {
+          alert("Міста немає в масиві");
+        } else {
+          cities.splice(index, 1);
+          renderCities();
+        }
+      }
+    </script>
+  </body>
+</html>
