@@ -12,6 +12,16 @@
     </pre>
     <script>
         let values = [10, 20, -2, 6, 11, -10, 125, -3, 8, 0, 3];
+        let value;
+
+        for (let index = 0; index < values.length; index++) {
+            value = values[index];
+            if (value < 0) {
+                values.splice(index, 1);
+            } 
+         }
+        //  the loop skips one value => removes -2 and goes to 11
+         console.log(values)
     </script>
 </body>
 </html>
