@@ -12,15 +12,12 @@
     </pre>
     <script>
         function min(a,b) {
-            if (a > b) alert (`Менше значення: ${b}`);
-            else if (b > a) alert (`Менше значення: ${a}`);
-            else alert (`Неможливо визначити менше значення`);
+            return a < b ? a : b;
         }
-        //function must RETURN value, but not alert
-        alert (`Знаходження меншого значення`);
+        
         let value1 = +prompt("Введіть перше значення:");
         let value2 = +prompt("Введіть друге значення:");
-        min(value1,value2);
+        console.log(min(value1,value2));
     </script>
 </body>
 </html>
