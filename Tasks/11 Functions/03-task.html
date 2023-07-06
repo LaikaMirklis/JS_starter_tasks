@@ -14,45 +14,42 @@
     </pre>
     <script>
       // назва товару
-      let names = [];
-      names[0] = "Папір офісний А4, 80 г/м2, 500 л";
-      names[1] = "Біндер для паперу 51 мм";
-      names[2] = "Ручка кулькова синя";
+      let productNames = [
+        "Папір офісний А4, 80 г/м2, 500 л",
+        "Біндер для паперу 51 мм",
+        "Ручка кулькова синя",
+      ];
 
       // ціна на товару
-      let prices = [];
-      prices[0] = 280.25; // Папір офісний А4, 80 г/м2, 500 л
-      prices[1] = 56; // Біндер для паперу 51 мм
-      prices[2] = 12.5; // Ручка кулькова синя
+      let productPrices = [280.25, 56, 12.5];
 
       function arrayGeneration() {
         let count = [];
-        for (let i = 0; i < names.length; i++) {
-          const productName = names[i];
-          let counttoBuy = +prompt("Вкажіть кількість для " + productName);
+        for (let i = 0; i < productNames.length; i++) {
+          let countToBuy = +prompt(`Вкажіть кількість для  + ${productNames[i]}`);
 
-          if (isNaN(counttoBuy)) counttoBuy = 0;
+          if (isNaN(countToBuy)) countToBuy = 0;
 
-          count.push(counttoBuy);
+          count.push(countToBuy);
         }
         return count;
       }
 
       function calcOfTotal() {
+        let count = arrayGeneration();
         let totalSum = 0;
-        for (let i = 0; i < names.length; i++) {
-          const productName = names[i];
-          const productPrice = prices[i];
+        for (let i = 0; i < productNames.length; i++) {
+          const productName = productNames[i];
+          const productPrice = productPrices[i];
           const boughtCount = count[i];
 
           let price = productPrice * boughtCount;
           totalSum += price;
-          console.log(`Придбано ${productName} на суму ${price}`);
+          console.log(`Придбано ${productName} на суму ${price.toFixed(2)}`);
         }
-        console.log("Всього продуктів придбано на " + totalSum);
+        console.log("Всього продуктів придбано на " + totalSum.toFixed(2));
       }
 
-      let count = arrayGeneration();
       calcOfTotal();
     </script>
   </body>
