@@ -1,17 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task 5</title>
-</head>
-<body>
+  </head>
+  <body>
     <pre>
         Завдання:
-        Створіть функцію, яка приймає массив значень та повертає массив з дублючими значеннями або null якщо значень, що повторюються, в массиві немає.
+        Створіть функцію, яка приймає массив значень та повертає массив з дублючими значеннями 
+        або null якщо значень, що повторюються, в массиві немає.
     </pre>
     <script>
-        
+      let values1 = [
+        10, 20, 4, 6, 11, 8, 125, 10, 8, 0, 3, 5, 89, 12, 46, 77, 3, 8
+      ];
+      let values2 = [1, 2, 3, 4, 5, 6, 7, 8];
+      let values3 = [1, 2, 3, 8, 5, 6, 8, 7, 8];
+
+      //  ------ < Faster option > ------
+      //   function findDublicates(arr) {
+      //     return [
+      //       ...new Set(arr.filter((elem, idx, arr) => arr.indexOf(elem) !== idx)),
+      //     ];
+      //   }
+
+      function bubbleSort(array) {
+        let sortedArray = array.slice();
+        let isSorted = false;
+        let temp;
+        while (!isSorted) {
+          isSorted = true;
+          for (let i = 0; i < sortedArray.length; i++) {
+            if (sortedArray[i] > sortedArray[i + 1]) {
+              temp = sortedArray[i];
+              sortedArray[i] = sortedArray[i + 1];
+              sortedArray[i + 1] = temp;
+              isSorted = false;
+            }
+          }
+        }
+        return sortedArray;
+      }
+
+      function findDublicates(array) {
+        let sortedArray = bubbleSort(array);
+        let dublicates = [];
+        for (let i = 0; i < sortedArray.length; i++) {
+          if (
+            sortedArray[i] == sortedArray[i + 1] &&
+            sortedArray[i - 1] != sortedArray[i]
+          ) {
+            dublicates.push(sortedArray[i]);
+          }
+        }
+
+        return dublicates.length != 0 ? dublicates : null;
+      }
+
+      console.log(findDublicates(values1));
+      console.log(findDublicates(values2));
+      console.log(findDublicates(values3));
     </script>
-</body>
+  </body>
 </html>
