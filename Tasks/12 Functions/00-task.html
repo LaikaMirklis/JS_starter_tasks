@@ -3,12 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Task 1</title>
+    <title>Task</title>
   </head>
   <body>
     <script>
       // Створіть одну глобальну змінну з довільним значенням та дві функції. Покажіть, що глобальна
       // змінна може використовуватися в цих двох функціях.
+
+      let value = 10;
+
+      let greaterThan1 = function () {
+        return value > 1;
+      };
+
+      let cube = function () {
+        return value*value;
+      };
+
+      console.log(greaterThan1 ());
+      console.log(cube ());
     </script>
   </body>
 </html>
